@@ -1,0 +1,34 @@
+<svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="project3Gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#27ae60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#229954;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Fondo -->
+  <rect width="400" height="200" fill="url(#project3Gradient)"/>
+  
+  <!-- Gráfico de crecimiento -->
+  <g transform="translate(50, 50)">
+    <!-- Línea de crecimiento -->
+    <path d="M0,80 Q50,60 100,40 T200,20 T300,10" stroke="white" stroke-width="4" fill="none" opacity="0.8"/>
+    
+    <!-- Puntos en la línea -->
+    <circle cx="0" cy="80" r="4" fill="white" opacity="0.9"/>
+    <circle cx="100" cy="40" r="4" fill="white" opacity="0.9"/>
+    <circle cx="200" cy="20" r="4" fill="white" opacity="0.9"/>
+    <circle cx="300" cy="10" r="4" fill="white" opacity="0.9"/>
+  </g>
+  
+  <!-- Icono de cohete -->
+  <g transform="translate(320, 60)">
+    <path d="M0,20 L-10,30 L10,30 Z" fill="white" opacity="0.8"/>
+    <rect x="-8" y="10" width="16" height="20" rx="2" fill="white" opacity="0.8"/>
+    <circle cx="0" cy="5" r="3" fill="white" opacity="0.9"/>
+  </g>
+  
+  <!-- Texto -->
+  <text x="200" y="160" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="bold">ESTRATEGIAS COMERCIALES</text>
+  <text x="200" y="180" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14" opacity="0.9">Innovación y Expansión de Mercado</text>
+</svg>
