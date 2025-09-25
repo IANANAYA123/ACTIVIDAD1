@@ -113,3 +113,4 @@ Business strategy presentation, market analysis charts, executive team planning,
 - Las imágenes de proyectos deben reflejar el contenido descrito
 - La imagen de perfil debe transmitir confianza y profesionalismo
 - Considerar el diseño en blanco y negro del sitio web al elegir colores
+

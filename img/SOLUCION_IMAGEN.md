@@ -52,3 +52,7 @@ La imagen de perfil no se está mostrando correctamente en el navegador.
 - Usa la imagen base64 que ya está implementada como fallback
 - Verifica que la carpeta `img/` esté en la ubicación correcta
 - Asegúrate de que el navegador tenga JavaScript habilitado
+
+
+
+

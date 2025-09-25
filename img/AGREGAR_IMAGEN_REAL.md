@@ -81,3 +81,7 @@ Una vez que agregues tu imagen como `perfil.jpg`, tu portafolio tendrá:
 - ✅ **Estilo minimalista** en blanco y negro
 
 **¡Solo agrega tu foto y disfruta del resultado!** 📸✨
+
+
+
+
