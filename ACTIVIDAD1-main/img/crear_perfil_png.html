@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Imagen de Perfil PNG</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .preview {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: #000000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .person {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .head {
+            width: 70px;
+            height: 70px;
+            background: #ffffff;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        
+        .body-container {
+            position: relative;
+        }
+        
+        .shoulders {
+            width: 70px;
+            height: 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            position: absolute;
+            top: -10px;
+            left: -10px;
+        }
+        
+        .body {
+            width: 50px;
+            height: 60px;
+            background: #ffffff;
+            border-radius: 8px;
+        }
+        
+        .name {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0;
+            text-align: center;
+        }
+        
+        .title {
+            color: #ffffff;
+            font-size: 14px;
+            margin: 5px 0 0 0;
+            text-align: center;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            background: #000000;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #333333;
+            transform: translateY(-2px);
+        }
+        
+        .instructions {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="instructions">
+        <h2>🖼️ Generador de Imagen de Perfil</h2>
+        <p>Esta es la imagen de perfil que se usará en tu portafolio. Haz clic en "Generar PNG" para descargar la imagen.</p>
+    </div>
+    
+    <div class="preview" id="preview">
+        <div class="person">
+            <div class="head"></div>
+            <div class="body-container">
+                <div class="shoulders"></div>
+                <div class="body"></div>
+            </div>
+        </div>
+        <h2 class="name">IAN ANAYA</h2>
+        <p class="title">Ingeniero Industrial</p>
+    </div>
+    
+    <button class="btn" onclick="generatePNG()">📥 Generar PNG</button>
+    
+    <div class="instructions">
+        <h3>📋 Instrucciones:</h3>
+        <ol style="text-align: left;">
+            <li>Haz clic en "Generar PNG"</li>
+            <li>Guarda el archivo como <strong>perfil.png</strong></li>
+            <li>Colócalo en la carpeta <strong>img/</strong></li>
+            <li>Actualiza el HTML para usar <strong>perfil.png</strong> en lugar de <strong>perfil.svg</strong></li>
+        </ol>
+    </div>
+
+    <script>
+        function generatePNG() {
+            // Crear canvas
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = 300;
+            canvas.height = 300;
+            
+            // Fondo circular negro
+            ctx.fillStyle = '#000000';
+            ctx.beginPath();
+            ctx.arc(150, 150, 150, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Cabeza
+            ctx.fillStyle = '#ffffff';
+            ctx.beginPath();
+            ctx.arc(150, 100, 35, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Hombros
+            ctx.fillRect(80, 115, 140, 20);
+            
+            // Cuerpo
+            ctx.fillRect(125, 135, 50, 60);
+            
+            // Texto
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 20px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('IAN ANAYA', 150, 220);
+            
+            ctx.font = '14px Arial';
+            ctx.fillText('Ingeniero Industrial', 150, 245);
+            
+            // Descargar
+            const link = document.createElement('a');
+            link.download = 'perfil.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+            
+            alert('¡Imagen generada! Ahora actualiza el HTML para usar perfil.png');
+        }
+    </script>
+</body>
+</html>
+
+
+
+

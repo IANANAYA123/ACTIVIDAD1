@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Imágenes para Portafolio</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .image-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            position: relative;
+        }
+        
+        .profile-img {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+        }
+        
+        .project1-img {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+        }
+        
+        .project2-img {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+        
+        .project3-img {
+            background: linear-gradient(135deg, #27ae60, #229954);
+        }
+        
+        .image-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .image-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .image-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .image-info {
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        
+        .image-info h3 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+        }
+        
+        .image-info p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .download-btn {
+            background: #2c3e50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        
+        .download-btn:hover {
+            background: #34495e;
+        }
+        
+        .instructions {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <div class="instructions">
+            <h2>🖼️ Imágenes Placeholder para el Portafolio</h2>
+            <p>Estas son las imágenes que necesitas para tu portafolio. Puedes usar estas como base o reemplazarlas con imágenes generadas por IA.</p>
+        </div>
+        
+        <!-- Imagen de Perfil -->
+        <div class="image-card">
+            <div class="image-placeholder profile-img">
+                <div class="image-icon">👨‍💼</div>
+                <div class="image-title">IAN ANAYA</div>
+                <div class="image-subtitle">Ingeniero Industrial</div>
+            </div>
+            <div class="image-info">
+                <h3>perfil.jpg</h3>
+                <p>Imagen de perfil profesional estilo Clark Kent</p>
+                <button class="download-btn" onclick="downloadImage('perfil')">Descargar como PNG</button>
+            </div>
+        </div>
+        
+        <!-- Proyecto 1 -->
+        <div class="image-card">
+            <div class="image-placeholder project1-img">
+                <div class="image-icon">📊</div>
+                <div class="image-title">OPTIMIZACIÓN</div>
+                <div class="image-subtitle">Procesos de Ventas</div>
+            </div>
+            <div class="image-info">
+                <h3>proyecto1.jpg</h3>
+                <p>Dashboard de ventas y análisis de procesos</p>
+                <button class="download-btn" onclick="downloadImage('proyecto1')">Descargar como PNG</button>
+            </div>
+        </div>
+        
+        <!-- Proyecto 2 -->
+        <div class="image-card">
+            <div class="image-placeholder project2-img">
+                <div class="image-icon">💼</div>
+                <div class="image-title">CRM</div>
+                <div class="image-subtitle">Fidelización de Clientes</div>
+            </div>
+            <div class="image-info">
+                <h3>proyecto2.jpg</h3>
+                <p>Sistema CRM y gestión de clientes</p>
+                <button class="download-btn" onclick="downloadImage('proyecto2')">Descargar como PNG</button>
+            </div>
+        </div>
+        
+        <!-- Proyecto 3 -->
+        <div class="image-card">
+            <div class="image-placeholder project3-img">
+                <div class="image-icon">🚀</div>
+                <div class="image-title">ESTRATEGIAS</div>
+                <div class="image-subtitle">Comerciales Innovadoras</div>
+            </div>
+            <div class="image-info">
+                <h3>proyecto3.jpg</h3>
+                <p>Estrategias de mercado y expansión</p>
+                <button class="download-btn" onclick="downloadImage('proyecto3')">Descargar como PNG</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function downloadImage(type) {
+            // Crear un canvas para convertir la imagen a PNG
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = 400;
+            canvas.height = 300;
+            
+            // Obtener el elemento de imagen correspondiente
+            const imageElement = document.querySelector(`.${type}-img`);
+            const rect = imageElement.getBoundingClientRect();
+            
+            // Crear gradiente según el tipo
+            let gradient;
+            switch(type) {
+                case 'perfil':
+                    gradient = ctx.createLinearGradient(0, 0, 400, 300);
+                    gradient.addColorStop(0, '#2c3e50');
+                    gradient.addColorStop(1, '#34495e');
+                    break;
+                case 'proyecto1':
+                    gradient = ctx.createLinearGradient(0, 0, 400, 300);
+                    gradient.addColorStop(0, '#3498db');
+                    gradient.addColorStop(1, '#2980b9');
+                    break;
+                case 'proyecto2':
+                    gradient = ctx.createLinearGradient(0, 0, 400, 300);
+                    gradient.addColorStop(0, '#e74c3c');
+                    gradient.addColorStop(1, '#c0392b');
+                    break;
+                case 'proyecto3':
+                    gradient = ctx.createLinearGradient(0, 0, 400, 300);
+                    gradient.addColorStop(0, '#27ae60');
+                    gradient.addColorStop(1, '#229954');
+                    break;
+            }
+            
+            // Dibujar fondo
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 400, 300);
+            
+            // Agregar texto
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 48px Arial';
+            ctx.textAlign = 'center';
+            
+            // Iconos y texto según el tipo
+            switch(type) {
+                case 'perfil':
+                    ctx.fillText('👨‍💼', 200, 120);
+                    ctx.font = 'bold 24px Arial';
+                    ctx.fillText('IAN ANAYA', 200, 180);
+                    ctx.font = '16px Arial';
+                    ctx.fillText('Ingeniero Industrial', 200, 210);
+                    break;
+                case 'proyecto1':
+                    ctx.fillText('📊', 200, 120);
+                    ctx.font = 'bold 24px Arial';
+                    ctx.fillText('OPTIMIZACIÓN', 200, 180);
+                    ctx.font = '16px Arial';
+                    ctx.fillText('Procesos de Ventas', 200, 210);
+                    break;
+                case 'proyecto2':
+                    ctx.fillText('💼', 200, 120);
+                    ctx.font = 'bold 24px Arial';
+                    ctx.fillText('CRM', 200, 180);
+                    ctx.font = '16px Arial';
+                    ctx.fillText('Fidelización de Clientes', 200, 210);
+                    break;
+                case 'proyecto3':
+                    ctx.fillText('🚀', 200, 120);
+                    ctx.font = 'bold 24px Arial';
+                    ctx.fillText('ESTRATEGIAS', 200, 180);
+                    ctx.font = '16px Arial';
+                    ctx.fillText('Comerciales Innovadoras', 200, 210);
+                    break;
+            }
+            
+            // Descargar la imagen
+            const link = document.createElement('a');
+            link.download = `${type}.png`;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+    </script>
+</body>
+</html>
+

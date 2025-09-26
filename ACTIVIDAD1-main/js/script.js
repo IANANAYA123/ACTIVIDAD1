@@ -52,191 +52,51 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // ===== FORMULARIO DE CONTACTO CON FORMSPREE =====
-    // Obtenemos referencias a los elementos del formulario
+    // ===== FORMULARIO DE CONTACTO =====
+    // Obtenemos referencia al formulario de contacto
     const contactForm = document.getElementById('contactForm');
-    const submitBtn = document.getElementById('submit-btn');
-    const btnText = submitBtn.querySelector('.btn-text');
-    const btnLoading = submitBtn.querySelector('.btn-loading');
-    const successMessage = document.getElementById('success-message');
-    
-    // Función para mostrar errores de validación
-    function showError(fieldId, message) {
-        const field = document.getElementById(fieldId);
-        const errorElement = document.getElementById(fieldId + '-error');
-        const formGroup = field.closest('.form-group');
-        
-        // Agregar clase de error al grupo del formulario
-        formGroup.classList.add('error');
-        
-        // Mostrar mensaje de error
-        errorElement.textContent = message;
-        errorElement.classList.add('show');
-        
-        // Remover error después de 5 segundos
-        setTimeout(() => {
-            hideError(fieldId);
-        }, 5000);
-    }
-    
-    // Función para ocultar errores
-    function hideError(fieldId) {
-        const field = document.getElementById(fieldId);
-        const errorElement = document.getElementById(fieldId + '-error');
-        const formGroup = field.closest('.form-group');
-        
-        formGroup.classList.remove('error');
-        errorElement.classList.remove('show');
-        errorElement.textContent = '';
-    }
-    
-    // Función para validar email
-    function validateEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-    
-    // Función para validar todos los campos
-    function validateForm() {
-        let isValid = true;
-        
-        // Obtener valores de los campos
-        const nombre = document.getElementById('nombre').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const mensaje = document.getElementById('mensaje').value.trim();
-        
-        // Limpiar errores anteriores
-        hideError('nombre');
-        hideError('email');
-        hideError('mensaje');
-        
-        // Validar nombre
-        if (!nombre) {
-            showError('nombre', 'El nombre es obligatorio');
-            isValid = false;
-        } else if (nombre.length < 2) {
-            showError('nombre', 'El nombre debe tener al menos 2 caracteres');
-            isValid = false;
-        }
-        
-        // Validar email
-        if (!email) {
-            showError('email', 'El correo electrónico es obligatorio');
-            isValid = false;
-        } else if (!validateEmail(email)) {
-            showError('email', 'Por favor, ingresa un correo electrónico válido');
-            isValid = false;
-        }
-        
-        // Validar mensaje
-        if (!mensaje) {
-            showError('mensaje', 'El mensaje es obligatorio');
-            isValid = false;
-        } else if (mensaje.length < 10) {
-            showError('mensaje', 'El mensaje debe tener al menos 10 caracteres');
-            isValid = false;
-        }
-        
-        return isValid;
-    }
-    
-    // Función para mostrar estado de carga
-    function showLoading() {
-        submitBtn.disabled = true;
-        btnText.style.display = 'none';
-        btnLoading.style.display = 'flex';
-    }
-    
-    // Función para ocultar estado de carga
-    function hideLoading() {
-        submitBtn.disabled = false;
-        btnText.style.display = 'inline';
-        btnLoading.style.display = 'none';
-    }
-    
-    // Función para mostrar mensaje de éxito
-    function showSuccessMessage() {
-        contactForm.style.display = 'none';
-        successMessage.style.display = 'block';
-        
-        // Scroll suave hacia el mensaje de éxito
-        successMessage.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'center' 
-        });
-    }
     
     // Función para manejar el envío del formulario
     function handleFormSubmit(e) {
         e.preventDefault(); // Previene el envío por defecto del formulario
         
-        // Validar formulario
-        if (!validateForm()) {
+        // Obtenemos los valores de los campos del formulario
+        const nombre = document.getElementById('nombre').value;
+        const email = document.getElementById('email').value;
+        const mensaje = document.getElementById('mensaje').value;
+        
+        // Validación básica de campos
+        if (!nombre || !email || !mensaje) {
+            alert('Por favor, completa todos los campos del formulario.');
             return;
         }
         
-        // Mostrar estado de carga
-        showLoading();
+        // Validación básica de email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert('Por favor, ingresa un correo electrónico válido.');
+            return;
+        }
         
-        // Crear FormData para el envío
-        const formData = new FormData(contactForm);
-        
-        // Enviar formulario a Formspree
-        fetch('https://formspree.io/f/xpwywkwl', {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-        .then(response => {
-            hideLoading();
-            
-            if (response.ok) {
-                // Éxito: mostrar mensaje de confirmación
-                showSuccessMessage();
-                console.log('✅ Formulario enviado correctamente a Formspree');
-            } else {
-                throw new Error('Error en el envío del formulario');
-            }
-        })
-        .catch(error => {
-            hideLoading();
-            console.error('❌ Error al enviar el formulario:', error);
-            
-            // Mostrar mensaje de error al usuario
-            alert('Hubo un problema al enviar el mensaje. Por favor, inténtalo de nuevo o contáctame directamente por WhatsApp.');
+        // Simulamos el envío del formulario
+        console.log('Formulario enviado correctamente');
+        console.log('Datos del formulario:', {
+            nombre: nombre,
+            email: email,
+            mensaje: mensaje,
+            fecha: new Date().toLocaleString()
         });
+        
+        // Mostramos mensaje de confirmación al usuario
+        alert('¡Mensaje enviado correctamente! Te contactaré pronto.');
+        
+        // Limpiamos el formulario
+        contactForm.reset();
     }
     
     // Event listener para el formulario de contacto
     if (contactForm) {
         contactForm.addEventListener('submit', handleFormSubmit);
-    }
-    
-    // Validación en tiempo real
-    const formFields = ['nombre', 'email', 'mensaje'];
-    formFields.forEach(fieldId => {
-        const field = document.getElementById(fieldId);
-        if (field) {
-            // Validar cuando el usuario sale del campo
-            field.addEventListener('blur', function() {
-                if (this.value.trim()) {
-                    validateForm();
-                }
-            });
-            
-            // Limpiar errores cuando el usuario empieza a escribir
-            field.addEventListener('input', function() {
-                hideError(fieldId);
-            });
-        }
-    });
-    
-    // Manejar parámetro de éxito en la URL (para redirección de Formspree)
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('success') === 'true') {
-        showSuccessMessage();
     }
     
     // ===== EFECTOS DE SCROLL REVEAL ESTILO APPLE =====
