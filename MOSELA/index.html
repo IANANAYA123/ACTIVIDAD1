@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MOSELA — Catálogo</title>
+    <meta name="description" content="Catálogo MOSELA — Página única con carrito por unidades (sin cálculos de precios)." />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Referencia al PDF fuente (para extracción manual de contenidos) -->
+    <!-- PDF: CATALOGO MOSELA vinos (1) -->
+
+    <!-- Overlay de ingreso -->
+    <div id="gateOverlay" class="overlay" aria-hidden="false">
+      <div class="overlay__panel" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
+        <div class="brand">
+          <div class="brand__logo" aria-hidden="true">MOSELA</div>
+          <h1 id="gateTitle" class="brand__tag">Vinos con esencia orgánica</h1>
+        </div>
+        <form id="gateForm" class="gate-form" novalidate>
+          <div class="field">
+            <label for="visitName">Nombre</label>
+            <input id="visitName" name="visitName" type="text" required placeholder="Tu nombre" />
+            <p class="error" id="errVisitName" role="alert" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="businessName">Nombre comercial</label>
+            <input id="businessName" name="businessName" type="text" required placeholder="Nombre comercial" />
+            <p class="error" id="errBusinessName" role="alert" aria-live="polite"></p>
+          </div>
+          <button type="submit" class="btn btn--primary">Ingresar al catálogo</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <header class="hero">
+      <div class="hero__content">
+        <div class="hero__brand">MOSELA</div>
+        <p class="hero__subtitle">Tradición, sabor y elegancia en cada botella</p>
+      </div>
+    </header>
+
+    <!-- Listado de productos -->
+    <main class="catalogo" id="catalogo" aria-live="polite">
+      <!-- Los productos se inyectan desde app.js con estructura basada en el PDF -->
+      <!-- Si no se pudo extraer automáticamente: reemplace textos/imagenes con el contenido del PDF "CATALOGO MOSELA vinos (1)" en /assets/ -->
+    </main>
+
+    <!-- Barra de carrito fija inferior -->
+    <div class="cartbar" role="region" aria-label="Carrito">
+      <button id="openCartBtn" class="cartbar__btn" aria-haspopup="dialog" aria-controls="cartModal">
+        <span class="cartbar__icon" aria-hidden="true">🛒</span>
+        <span id="cartUnits" class="cartbar__units" aria-live="polite">0 unidades</span>
+      </button>
+      <button id="viewCartBtn" class="btn btn--secondary" aria-haspopup="dialog" aria-controls="cartModal">Ver pedido</button>
+    </div>
+
+    <!-- Modal del pedido -->
+    <div id="cartModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="cartTitle" aria-hidden="true">
+      <div class="modal__panel">
+        <div class="modal__head">
+          <h2 id="cartTitle">Pedido</h2>
+          <button id="closeCartBtn" class="icon-btn" aria-label="Cerrar">✕</button>
+        </div>
+        <div id="customerInfo" class="modal__customer"></div>
+        <div id="cartList" class="modal__list">
+          <!-- Items del carrito: Nombre y controles de cantidad (sin precios) -->
+        </div>
+        <div class="modal__foot">
+          <div class="units-total" id="unitsTotal" aria-live="polite">Total unidades: 0</div>
+          <button id="sendOrderBtn" class="btn btn--primary" type="button">Enviar pedido</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer__content">
+        <div class="footer__brand">MOSELA</div>
+        <div class="footer__contact">
+          <div><strong>Nombre:</strong> Sebastián Anaya</div>
+          <div><strong>Teléfono:</strong> 311 5451199</div>
+          <div class="socials">
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="Facebook">Facebook</a>
+            <a href="#" aria-label="LinkedIn">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
+
+
+
