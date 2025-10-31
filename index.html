@@ -1,105 +1,347 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>MOSELA | Catálogo</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="styles.css">
+    <!-- Configuración básica del documento -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ian Anaya - Ingeniero Industrial</title>
+    
+    <!-- Enlace a la hoja de estilos -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Fuentes de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Iconos de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-	<!-- Pantalla inicial: formulario de ingreso -->
-	<section id="entry" class="entry-view">
-		<div class="entry-overlay"></div>
-		<div class="entry-card">
-			<h1 class="brand">MOSELA</h1>
-			<p class="tagline">Tradición, sabor y elegancia en cada botella</p>
-			<form id="entryForm" class="entry-form" autocomplete="on">
-				<label class="field">
-					<span>Nombre del visitante</span>
-					<input id="visitorName" name="visitorName" type="text" placeholder="Tu nombre" required>
-				</label>
-				<label class="field">
-					<span>Nombre comercial</span>
-					<input id="businessName" name="businessName" type="text" placeholder="Empresa o tienda" required>
-				</label>
-				<button type="submit" class="btn btn-primary">Ingresar al catálogo</button>
-			</form>
-		</div>
-	</section>
+    <!-- Navegación principal -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo/Nombre -->
+            <div class="nav-logo">
+                <h2>Ian Anaya</h2>
+            </div>
+            
+            <!-- Menú de navegación -->
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#inicio" class="nav-link">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#experiencia" class="nav-link">Experiencia</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#proyectos" class="nav-link">Proyectos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contacto" class="nav-link">Contacto</a>
+                </li>
+            </ul>
+            
+            <!-- Botón hamburguesa para móviles -->
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
 
-	<!-- Página principal: catálogo -->
-	<main id="catalog" class="catalog-view hidden">
-		<header class="hero">
-			<div class="hero-inner">
-				<h1 class="brand">MOSELA</h1>
-				<p class="tagline">Tradición, sabor y elegancia en cada botella</p>
-			</div>
-		</header>
+    <!-- Sección de presentación/Hero -->
+    <section id="inicio" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <!-- Información personal -->
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Hola, soy <span class="highlight">Ian Anaya</span>
+                    </h1>
+                    <h2 class="hero-subtitle">Ingeniero Industrial</h2>
+                    <p class="hero-description">
+                        Ingeniero Industrial con formación en CRM, análisis de datos y amplia experiencia 
+                        en atención al cliente desde la parte ejecutiva. Actualmente lidero mi propia 
+                        empresa distribuidora, aplicando mis estudios y conocimientos para el crecimiento comercial.
+                    </p>
+                    
+                    <!-- Botones de acción -->
+                    <div class="hero-buttons">
+                        <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
+                        <a href="#contacto" class="btn btn-secondary">Contactar</a>
+                    </div>
+                </div>
+                
+                <!-- Foto de perfil -->
+                <div class="hero-image">
+                    <img src="img/foto1.jpg" alt="Ian Anaya - Ingeniero Industrial" class="profile-img">
+                </div>
+            </div>
+        </div>
+    </section>
 
-		<section class="products" id="products">
-			<!-- Productos renderizados por JS -->
-		</section>
+    <!-- Sección de experiencia -->
+    <section id="experiencia" class="experience">
+        <div class="container">
+            <h2 class="section-title">Mi Experiencia</h2>
+            
+            <div class="experience-grid">
+                <!-- Tarjeta de experiencia empresarial -->
+                <div class="experience-card">
+                    <div class="experience-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Empresario y Líder Comercial</h3>
+                    <p class="experience-period">2020 - Presente</p>
+                    <p class="experience-description">
+                        Lidero mi propia empresa distribuidora, donde aplico mis conocimientos 
+                        como ingeniero industrial para optimizar procesos comerciales y de ventas.
+                    </p>
+                    <ul class="experience-skills">
+                        <li>Gestión empresarial</li>
+                        <li>Liderazgo de equipos</li>
+                        <li>Estrategias comerciales</li>
+                        <li>Análisis de mercado</li>
+                    </ul>
+                </div>
 
-		<footer class="site-footer">
-			<div class="footer-inner">
-				<div class="contact">
-					<h3>Contacto</h3>
-					<p class="contact-line"><strong>Nombre:</strong> Sebastián Anaya</p>
-					<p class="contact-line"><strong>Teléfono:</strong> 3115451199</p>
-					<a class="btn-whatsapp" href="https://wa.me/573115451199" target="_blank" rel="noopener">WhatsApp 573115451199</a>
-				</div>
-			</div>
-		</footer>
-	</main>
+                <!-- Tarjeta de experiencia técnica -->
+                <div class="experience-card">
+                    <div class="experience-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Ingeniero Industrial</h3>
+                    <p class="experience-period">2023 - Presente</p>
+                    <p class="experience-description">
+                        Aunque mi experiencia directa como ingeniero industrial es reciente, 
+                        aplico constantemente mis conocimientos técnicos en la gestión de mi empresa.
+                    </p>
+                    <ul class="experience-skills">
+                        <li>Optimización de procesos</li>
+                        <li>Análisis de datos</li>
+                        <li>Gestión de CRM</li>
+                        <li>Control de calidad</li>
+                    </ul>
+                </div>
 
-	<!-- Barra de carrito fija -->
-	<div class="cart-bar" id="cartBar">
-		<div class="cart-info">
-			<span class="cart-total-text" id="cartTotalText">🛒 Total de unidades: 0</span>
-		</div>
-		<button class="btn btn-secondary" id="viewCartBtn">Ver pedido</button>
-	</div>
+                <!-- Tarjeta de habilidades comerciales -->
+                <div class="experience-card">
+                    <div class="experience-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Gerente Ejecutivo de Ventas</h3>
+                    <p class="experience-period">2018 - Presente</p>
+                    <p class="experience-description">
+                        Amplia experiencia en el área comercial y de ventas, desarrollando 
+                        habilidades tanto técnicas como blandas para el crecimiento empresarial.
+                    </p>
+                    <ul class="experience-skills">
+                        <li>Comunicación efectiva</li>
+                        <li>Negociación</li>
+                        <li>Fidelización de clientes</li>
+                        <li>Desarrollo de estrategias</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-	<!-- Modal del pedido -->
-	<div class="modal" id="cartModal" aria-hidden="true" role="dialog" aria-labelledby="cartTitle">
-		<div class="modal-backdrop" data-close></div>
-		<div class="modal-dialog" role="document">
-			<header class="modal-header">
-				<h2 id="cartTitle">Resumen del pedido</h2>
-				<button class="icon-btn" id="closeCartBtn" aria-label="Cerrar">×</button>
-			</header>
-			<div class="modal-body">
-				<ul class="cart-list" id="cartList"></ul>
-				<div class="cart-total">
-					<span>Total de unidades</span>
-					<strong id="cartTotalUnits">0</strong>
-				</div>
-			</div>
-			<footer class="modal-footer">
-				<button class="btn btn-secondary" id="resetCartBtn">Restaurar carrito</button>
-				<button class="btn btn-primary" id="sendOrderBtn">Enviar pedido</button>
-				<button class="btn btn-secondary" id="generateReceiptBtn">Generar resumen para envío</button>
-			</footer>
-		</div>
-	</div>
+    <!-- Sección de proyectos -->
+    <section id="proyectos" class="projects">
+        <div class="container">
+            <h2 class="section-title">Mis Proyectos</h2>
+            <p class="section-subtitle">Proyectos destacados donde he aplicado mis conocimientos como ingeniero industrial</p>
+            
+            <div class="projects-grid">
+                <!-- Proyecto 1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="img/proyecto1.svg" alt="Optimización de procesos de ventas">
+                    </div>
+                    <div class="project-content">
+                        <h3>Optimización de Procesos de Ventas</h3>
+                        <p class="project-description">
+                            Implementé un sistema de optimización de procesos de ventas en mi empresa 
+                            distribuidora, mejorando la eficiencia operativa en un 35%.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Análisis de Datos</span>
+                            <span class="tech-tag">Procesos</span>
+                            <span class="tech-tag">Ventas</span>
+                        </div>
+                        <button class="btn btn-outline project-btn">Ver más</button>
+                    </div>
+                </div>
 
-	<!-- Vista tipo recibo para screenshot -->
-	<div id="receiptView" aria-hidden="true">
-		<div class="receipt-inner">
-			<div class="receipt-brand">MOSELA</div>
-			<div class="receipt-meta" id="receiptUser"></div>
-			<ul class="receipt-list" id="receiptList"></ul>
-			<div class="receipt-total">Total de unidades: <strong id="receiptTotal">0</strong></div>
-			<div class="receipt-actions">
-				<button class="btn btn-secondary" id="closeReceiptBtn">Cerrar</button>
-			</div>
-		</div>
-	</div>
+                <!-- Proyecto 2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="img/proyecto2.svg" alt="Implementación de CRM">
+                    </div>
+                    <div class="project-content">
+                        <h3>Implementación de CRM</h3>
+                        <p class="project-description">
+                            Desarrollé e implementé un sistema CRM personalizado para la fidelización 
+                            de clientes, aumentando la retención en un 40%.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">CRM</span>
+                            <span class="tech-tag">Fidelización</span>
+                            <span class="tech-tag">Clientes</span>
+                        </div>
+                        <button class="btn btn-outline project-btn">Ver más</button>
+                    </div>
+                </div>
 
-	<script src="app.js"></script>
+                <!-- Proyecto 3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="img/proyecto3.svg" alt="Estrategias comerciales">
+                    </div>
+                    <div class="project-content">
+                        <h3>Estrategias Comerciales Innovadoras</h3>
+                        <p class="project-description">
+                            Formulé estrategias comerciales innovadoras para la expansión de mercado, 
+                            logrando un crecimiento del 25% en nuevos clientes.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Estrategia</span>
+                            <span class="tech-tag">Mercado</span>
+                            <span class="tech-tag">Innovación</span>
+                        </div>
+                        <button class="btn btn-outline project-btn">Ver más</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de contacto -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <p class="section-subtitle">¿Tienes un proyecto en mente? ¡Hablemos!</p>
+            
+            <div class="contact-content">
+                <!-- Formulario de contacto con Formspree -->
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form" action="https://formspree.io/f/xpwywkwl" method="POST">
+                        <!-- Campo oculto para evitar spam -->
+                        <input type="hidden" name="_subject" value="Nuevo mensaje desde el portafolio de Ian Anaya">
+                        <input type="hidden" name="_next" value="?success=true">
+                        
+                        <div class="form-group">
+                            <label for="nombre">Nombre *</label>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo">
+                            <span class="error-message" id="nombre-error"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico *</label>
+                            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                            <span class="error-message" id="email-error"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje *</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Cuéntame sobre tu proyecto o consulta..."></textarea>
+                            <span class="error-message" id="mensaje-error"></span>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" id="submit-btn">
+                            <span class="btn-text">Enviar Mensaje</span>
+                            <span class="btn-loading" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i> Enviando...
+                            </span>
+                        </button>
+                    </form>
+                    
+                    <!-- Mensaje de confirmación -->
+                    <div id="success-message" class="success-message" style="display: none;">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>¡Mensaje enviado correctamente!</h3>
+                        <p>Gracias por contactarme. Te responderé pronto.</p>
+                    </div>
+                </div>
+                
+                <!-- Información de contacto -->
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Sitio Web</h4>
+                            <p>www.iananaya.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>WhatsApp</h4>
+                            <p>+57 313 315 9634</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Enlaces a redes sociales -->
+                    <div class="social-links">
+                        <h4>Sígueme en:</h4>
+                        <div class="social-icons">
+                            <a href="#" class="social-link" title="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="social-link" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="#" class="social-link" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Ian Anaya – Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Enlace al archivo JavaScript -->
+    <script src="js/script.js"></script>
+
+    <!-- Chatbase Bot -->
+    <script> 
+    (function(){
+        if(!window.chatbase||window.chatbase("getState")!=="initialized"){
+            window.chatbase=(...arguments)=>{
+                if(!window.chatbase.q){window.chatbase.q=[]}
+                window.chatbase.q.push(arguments)
+            };
+            window.chatbase=new Proxy(window.chatbase,{
+                get(target,prop){
+                    if(prop==="q"){return target.q}
+                    return(...args)=>target(prop,...args)
+                }
+            })
+        }
+        const onLoad=function(){
+            const script=document.createElement("script");
+            script.src="https://www.chatbase.co/embed.min.js";
+            script.id="H57nAhrUtNPgBCqH3mu9Y"; <!-- Aquí va el ID de tu bot -->
+            script.domain="www.chatbase.co";
+            document.body.appendChild(script)
+        };
+        if(document.readyState==="complete"){onLoad()}
+        else{window.addEventListener("load",onLoad)}
+    })();
+    </script>
 </body>
 </html>
 
